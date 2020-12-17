@@ -1,22 +1,25 @@
 import logo from './logo.svg';
 import styles from './App.module.css';
+import { Button, Stack } from '@chakra-ui/react';
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+    return (
+    <Stack direction="row">
+      <div>{count}</div>
+      <Button colorScheme="green" onClick={() => setCount(count + 1)}>+</Button>
+      <Button colorScheme="red" onClick={() => setCount(count - 1)}>-</Button>
+    </Stack>
+  );
+}
 
 function App() {
   return (
     <div className={styles['App']}>
       <header className={styles['App-header']}>
-        <img src={logo} className={styles['App-logo']} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className={styles['App-link']}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {Counter()}
+        <Button colorScheme="blue">Hello world!</Button>
       </header>
     </div>
   );
